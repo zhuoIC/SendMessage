@@ -9,11 +9,13 @@ import android.widget.EditText;
 public class SendMessageActivity extends AppCompatActivity {
 
     private EditText edtMessage;
+    private EditText edtUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send_message);
-        EditText edtMessage = (EditText) findViewById(R.id.edtMessage);
+        edtMessage = (EditText) findViewById(R.id.edtMessage);
+        edtUser = (EditText) findViewById(R.id.edtUser);
     }
 
     public void getOnClick(View view) {
@@ -23,10 +25,12 @@ public class SendMessageActivity extends AppCompatActivity {
                 //2. Crear un objeto Bundle y añadir el mensaje
                 Bundle bundle = new Bundle();
                 bundle.putString("message", edtMessage.getText().toString());
+                bundle.putString("user", edtUser.getText().toString());
                 //3. Crear un objeto Intent
                 Intent intent = new Intent(SendMessageActivity.this, ViewMessageActivity.class);
-                //4. Iniciar la Activity ViewMessage
+                //4. Añadir el Bundle al Intent
                 intent.putExtras(bundle);
+                //5. Iniciar la Activity ViewMessage
                 startActivity(intent);
                 break;
         }
