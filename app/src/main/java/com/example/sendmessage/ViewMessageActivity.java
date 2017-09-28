@@ -9,6 +9,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
+/**
+ * Esta clase recibe un mensaje de un usuario y se muestra en pantalla
+ * @author Nicolás Hernández Jiménez
+ *
+ */
+
+
 public class ViewMessageActivity extends AppCompatActivity {
     private TextView txvViewMessage;
     private TextView txvViewUser;
@@ -22,10 +29,12 @@ public class ViewMessageActivity extends AppCompatActivity {
         //Intent intent = getIntent();
         // 2. Recoger el mensaje del Bundle
         //Bundle bundle = intent.getExtras();
-        // 3. Mostrar el mensaje
-        txvViewMessage.setText(getIntent().getExtras().getString("message"));
+        // 3. Muestra el usuario origen
         String viewUser = String.format(getResources().getString(R.string.txvViewUser), getIntent().getExtras().getString("user"));
         txvViewUser.setText(viewUser);
+        // 4. Mostrar el mensaje
+        txvViewMessage.setText(getIntent().getExtras().getString("message"));
+
     }
 
 }
